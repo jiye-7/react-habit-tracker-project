@@ -1,40 +1,45 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
+// props로 전달받은 habit이라는 Object를 보여주기만 하는 컴포넌트
 class Habit extends Component {
-  state = {
-    count: 0,
-  }
-
   handleIncrement = () => {
-    // state object안에 있는 해당 멤버변수 count를 찾아 1증가 시킨 뒤 state를 업데이트 한다.
-    this.setState({
-      count: ++this.state.count,
-    })
+    this.props.onIncrement(this.props.habit);
   };
 
   handleDecrement = () => {
-    const count = --this.state.count;
-    this.setState({
-      count: count < 0 ? 0 : count,
-    })
-  }
+    this.props.onDecrement(this.props.habit);
+  };
+
+  handleDelete = () => {
+    this.props.onDelete(this.props.habit);
+  };
 
   render() {
+    const { name, count } = this.props.habit;
     return (
       <li className="habit">
-        <span className="habit-name">Reading</span>
-        <span className="habit-count">{this.state.count}</span>
-        <button className="habit-button habit-increase" onClick={this.handleIncrement}>
+        <span className="habit-name">{name}</span>
+        <span className="habit-count">{count}</span>
+        <button
+          className="habit-button habit-increase"
+          onClick={this.handleIncrement}
+        >
           <i className="fas fa-plus-square"></i>
         </button>
-        <button className="habit-button habit-decrease" onClick={this.handleDecrement}>
+        <button
+          className="habit-button habit-decrease"
+          onClick={this.handleDecrement}
+        >
           <i className="fas fa-minus-square"></i>
         </button>
-        <button className="habit-button habit-delete">
+        <button
+          className="habit-button habit-delete"
+          onClick={this.handleDelete}
+        >
           <i className="fas fa-trash"></i>
         </button>
       </li>
-    )
+    );
   }
 }
 
