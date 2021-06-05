@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// props로 전달받은 habit이라는 Object를 보여주기만 하는 컴포넌트
 class Habit extends Component {
   handleIncrement = () => {
     this.props.onIncrement(this.props.habit);
@@ -16,6 +15,7 @@ class Habit extends Component {
 
   render() {
     const { name, count } = this.props.habit;
+
     return (
       <li className="habit">
         <span className="habit-name">{name}</span>
