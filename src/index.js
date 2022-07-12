@@ -1,13 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./app";
-import "@fortawesome/fontawesome-free/js/all.js";
-import SimpleHabit from './components/simpleHabit';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
-ReactDOM.render(
+const rootElement = ReactDOM.createRoot(document.getElementById('root'));
+rootElement.render(
   <React.StrictMode>
-    <SimpleHabit />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <App />
+  </React.StrictMode>
 );

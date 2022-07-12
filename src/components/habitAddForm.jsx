@@ -8,19 +8,18 @@ const HabitAddForm = memo((props) => {
     e.preventDefault();
     const name = inputRef.current.value;
     name && props.onAdd(name);
-    // inputRef.current.value = "";
     formRef.current.reset();
   };
 
   return (
-    <form ref={formRef} className="add-form" onSubmit={onSubmit}>
+    <form ref={formRef} className='add-form' onSubmit={onSubmit}>
       <input
         ref={inputRef}
-        type="text"
-        className="add-input"
-        placeholder="Habit write here! :)"
+        type='text'
+        className='add-input'
+        placeholder='Habit write here! :)'
       />
-      <button className="add-button">Add habit 😼</button>
+      <button className='add-button'>Add habit 😼</button>
     </form>
   );
 });
