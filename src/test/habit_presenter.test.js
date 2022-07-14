@@ -73,12 +73,24 @@ describe('HabitPresenter', () => {
     checkUpdateIsCalled();
   });
 
-  it('reset', () => {
-    presenter.reset(update);
+  describe('reset', () => {
+    it('set all habit count to 0', () => {
+      presenter.reset(update);
 
-    expect(presenter.getHabits()[0].count).toBe(0);
-    expect(presenter.getHabits()[1].count).toBe(0);
-    checkUpdateIsCalled();
+      expect(presenter.getHabits()[0].count).toBe(0);
+      expect(presenter.getHabits()[1].count).toBe(0);
+      checkUpdateIsCalled();
+    });
+
+    it('does not create new object when count is 0', () => {
+      const habits = presenter.getHabits();
+      presenter.reset(update);
+      // habits[1]의 count는 처음부터 0이었으니까 처음에 가지고 있던 habits의 배열과 reset한 다음의 업데이트 된 배열이 똑같아야 된다.
+      const updatedHabits = presenter.getHabits();
+
+      expect(updatedHabits[1]).toBe(habits[1]); // -> 실패 // toBe는 object의 참조값을 비교
+      // expect(updatedHabits[1]).toEqual(habits[1]); // toEqual은 object안의 data 내용 값 비교
+    });
   });
 
   /**
