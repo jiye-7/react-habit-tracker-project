@@ -1,36 +1,34 @@
-/* {
-  "extends": ["plugin:testing-library/react"],
-  "plugins": ["react", "testing-library"],
-  "rules": {
-    "testing-library/no-render-in-setup": [
-      "error",
-      { "allowTestingFrameworkSetupHook": "beforeAll" }
-    ]
-  },
-  "parser": "@babel/eslint-parser",
-  "parserOptions": { "requireConfigFile": false }
-}
- */
 {
-  "parser": "@babel/eslint-parser",
   "settings": {
     "react": {
       "version": "detect"
     }
   },
   "env": {
-    "browser": true,
-    "es2021": true
+    "browser": true
   },
   "extends": [
     "plugin:react/recommended",
-    "standard",
     "plugin:react/jsx-runtime",
     "plugin:testing-library/react",
     "plugin:jest/all"
   ],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "requireConfigFile": false,
+    "presets": ["@babel/preset-react"],
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+    "import/no-unresolved": [2, { "caseSensitive": false }]
+  },
+  "jest/prefer-lowercase-title": [
+    "error",
+    {
+      "ignore": ["describe", "test"]
+    }
+  ]
 }
