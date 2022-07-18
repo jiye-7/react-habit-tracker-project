@@ -25,10 +25,5 @@
   "rules": {
     "import/no-unresolved": [2, { "caseSensitive": false }]
   },
-  "jest/prefer-lowercase-title": [
-    "error",
-    {
-      "ignore": ["describe", "test"]
-    }
-  ]
+  "react/display-name": [{ "ignoreTranspilerName": true }]
 }
