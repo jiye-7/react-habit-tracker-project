@@ -1,10 +1,36 @@
-{
+/* {
   "extends": ["plugin:testing-library/react"],
-  "plugins": ["testing-library", "jest-dom"],
+  "plugins": ["react", "testing-library"],
   "rules": {
     "testing-library/no-render-in-setup": [
       "error",
       { "allowTestingFrameworkSetupHook": "beforeAll" }
     ]
-  }
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": { "requireConfigFile": false }
+}
+ */
+{
+  "parser": "@babel/eslint-parser",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard",
+    "plugin:react/jsx-runtime",
+    "plugin:testing-library/react",
+    "plugin:jest/all"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {}
 }
