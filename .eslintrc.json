@@ -1,0 +1,10 @@
+{
+  "extends": ["plugin:testing-library/react"],
+  "plugins": ["testing-library", "jest-dom"],
+  "rules": {
+    "testing-library/no-render-in-setup": [
+      "error",
+      { "allowTestingFrameworkSetupHook": "beforeAll" }
+    ]
+  }
+}
