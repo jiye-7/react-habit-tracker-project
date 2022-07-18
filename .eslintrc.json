@@ -1,0 +1,29 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:testing-library/react",
+    "plugin:jest/all"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "requireConfigFile": false,
+    "presets": ["@babel/preset-react"],
+    "sourceType": "module"
+  },
+  "rules": {
+    "import/no-unresolved": [2, { "caseSensitive": false }]
+  },
+  "react/display-name": [{ "ignoreTranspilerName": true }]
+}
