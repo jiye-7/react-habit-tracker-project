@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-render-in-setup */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import HabitAddForm from '../habitAddForm';
 
@@ -29,7 +29,8 @@ describe('HabitAddForm', () => {
   });
 
   it('does not call onAdd when the habit is empty', () => {
-    userEvent.type(input, '');
+    // userEvent.type(input, '');
+    userEvent.clear(input);
     userEvent.click(button);
 
     // expect(onAdd).toHaveBeenCalledWith(''); // 문자열이 비어있으면 호출하면 안되니까 callTimes로 0번 호출되었는지를 검사하면 된다.
